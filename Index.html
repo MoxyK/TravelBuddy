@@ -8,6 +8,8 @@
     <!--<link rel="stylesheet" href="styles/reset.css" />-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Travel Buddy</title>
 </head>
@@ -19,12 +21,24 @@
           <p class="lead">This is a app to get all the information you need for your travel destinations.</p>
         </div>
       </div>
+      <div id='map' style='width: 400px; height: 300px;'></div>
+    <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoibW94eS0iLCJhIjoiY2xkdzIxem45MDJnbTNybnZ6dndpaHdycSJ9.myBLbSV4M9QmJmkYflKQ0Q';
+    const map = new mapboxgl.Map({
+    container: 'map', // container ID
+    style: 'mapbox://styles/mapbox/streets-v12', // style URL
+    center: [-74.5, 40], // starting position [lng, lat]
+    zoom: 9, // starting zoom
+    });
+    </script>
+      <div id="output"></div>
 
     <!-- Moment.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/MapBox.js"></script>
 </body>
 </html>
->>>>>>> e150166a6c1b9ab9c0309a9cc975cf5b9446767d
+<!-- >>>>>>> e150166a6c1b9ab9c0309a9cc975cf5b9446767d -->
