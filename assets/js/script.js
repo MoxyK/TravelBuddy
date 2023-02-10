@@ -13,7 +13,11 @@ $(document).ready(function () {
     .then((response) => response.json())
   .then((data) => {
     console.log(data);
+     
+    for(i=0; i<data.results.length; i++){
+      console.log(data.results[i].title);
 
+    }
 
   }
   
