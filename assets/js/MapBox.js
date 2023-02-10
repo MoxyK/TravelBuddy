@@ -20,8 +20,19 @@ $(document).ready(function() {
                             center: [(long), (lati)],
                             essential: true // this animation is considered essential with respect to prefers-reduced-motion
                             })
+
+            .then(function(searchLo) {
+                let result = outputData(searchLo.context);
+                $("#outputData").html(result);
+                $("#outputData").val('');
+                
+                }) 
             })
-        
+
+        function outputData(searchLo) {
+    return '<div><h4>' + searchLo.context[1].text
+        }
+
     })
 });
 
@@ -33,13 +44,4 @@ style: 'mapbox://styles/mapbox/outdoors-v11', // style URL
 center: [-74.5, 40], // starting position [lng, lat]
 zoom: 9, // starting zoom
 });
-console.log(mapboxgl);
-
-// document.getElementById('submit').addEventListener('click', () => {
-//     // Fly to a random location
-//     map.flyTo({
-//     center: [(Math.random() - 0.5) * 360, (Math.random() - 0.5) * 100],
-//     essential: true // this animation is considered essential with respect to prefers-reduced-motion
-//     })
-
-// });
+console.log(mapboxgl)
