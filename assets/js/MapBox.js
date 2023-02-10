@@ -9,22 +9,21 @@ $(document).ready(function() {
                 url: queryURL,
                 method: "GET"
             })
-            .then(function(search) {
-                // let result = outputData(response);
-                // $("#outputData").html(result);
-                // $("#outputData").val('');
-                    document.getElementById('submit').addEventListener('click', () => {
-                        // Fly to location
-                        map.flyTo({
-                        center: [(search.features[0].center)],
-                        essential: true // this animation is considered essential with respect to prefers-reduced-motion
-                        });
-                    });
-                    console.log(search.features[0].center);
+            .then(function(searchLo) {
+                let long = (searchLo.features[0].center[0]);
+                let lati = (searchLo.features[0].center[1]);
+                        console.log(long);
+                        console.log(lati);
+                        console.log(searchLo.features[0]);
+                            // Fly to a random location
+                            map.flyTo({
+                            center: [(long), (lati)],
+                            essential: true // this animation is considered essential with respect to prefers-reduced-motion
+                            })
             })
         
     })
-})
+});
 
 mapboxgl.accessToken = 
 'pk.eyJ1IjoibW94eS0iLCJhIjoiY2xkdzIxem45MDJnbTNybnZ6dndpaHdycSJ9.myBLbSV4M9QmJmkYflKQ0Q';
@@ -36,11 +35,11 @@ zoom: 9, // starting zoom
 });
 console.log(mapboxgl);
 
-
 // document.getElementById('submit').addEventListener('click', () => {
 //     // Fly to a random location
 //     map.flyTo({
 //     center: [(Math.random() - 0.5) * 360, (Math.random() - 0.5) * 100],
 //     essential: true // this animation is considered essential with respect to prefers-reduced-motion
-//     });
-//     });
+//     })
+
+// });
