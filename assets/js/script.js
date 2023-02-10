@@ -1,6 +1,6 @@
 // Currencies to exchange
-let baseCurrency = "EUR";
-let wantedCurrency = "NOK";
+let baseCurrency = "GBP";
+let wantedCurrency = "EUR";
 
 // retrieve Exchange rate data from local storage 
 let currencyResponse = JSON.parse(localStorage.getItem("currencyRespose"));
