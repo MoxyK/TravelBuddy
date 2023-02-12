@@ -20,9 +20,11 @@ $(document).ready(function () {
         for(i=0; i<data.results.length; i++){
           console.log(data.results[i].title);
 
-          htmlStr='<p class="card-text">';
+          htmlStr='<p class="card-text"><a href="';
+          htmlStr += data.results[i].link;
+          htmlStr+='">';
           htmlStr += data.results[i].title;
-          htmlStr += '</p>';
+          htmlStr += '</a></p>';
 
           $('#news-text').append(htmlStr);
 
