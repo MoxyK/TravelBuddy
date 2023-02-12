@@ -17,6 +17,13 @@ $(document).ready(function () {
     
       if(data.status=="success")
       {
+        htmlbn= '<div class="card"style="width:18rem;">';
+        htmlbn+='<div class="card-body">';
+        htmlbn+= '<h5 class="card-title">Breaking News!</h5>';
+        htmlbn+=' </div></div>';
+        $('#news-text').append(htmlbn);
+     
+
         for(i=0; i<data.results.length; i++){
           console.log(data.results[i].title);
 
@@ -30,6 +37,8 @@ $(document).ready(function () {
 
     
       }
+      
+      
 
     }
 
