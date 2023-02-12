@@ -1,6 +1,7 @@
 $(document).ready(function () {
   
   appkey = "pub_1685584ea786012cacd69ff07a39293e82d98";
+  $("#news-header").hide();
 
 //search function to get the news based on country
   $("#btnSearch").click(function() {
@@ -16,22 +17,23 @@ $(document).ready(function () {
      
     
       if(data.status=="success")
-      {
-        htmlbn= '<div class="card"style="width:18rem;">';
-        htmlbn+='<div class="card-body">';
-        htmlbn+= '<h5 class="card-title">Breaking News!</h5>';
-        htmlbn+=' </div></div>';
-        $('#news-text').append(htmlbn);
-     
+      {    
+        $("#news-header").show();    
 
         for(i=0; i<data.results.length; i++){
           console.log(data.results[i].title);
 
-          htmlStr='<p class="card-text"><a href="';
+          htmlStr= '<div class="card">';
+          htmlStr+='<div class="card-body">';
+          htmlStr+= '<h5 class="card-title"></h5>';
+          htmlStr +='<p class="card-text"><a href="';
           htmlStr += data.results[i].link;
           htmlStr+='">';
           htmlStr += data.results[i].title;
           htmlStr += '</a></p>';
+          htmlStr+=' </div></div>';
+
+          
 
           $('#news-text').append(htmlStr);
 
