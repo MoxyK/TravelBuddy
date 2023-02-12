@@ -14,8 +14,20 @@ $(document).ready(function () {
   .then((data) => {
     console.log(data);
      
-    for(i=0; i<data.results.length; i++){
-      console.log(data.results[i].title);
+    
+      if(data.status=="success")
+      {
+        for(i=0; i<data.results.length; i++){
+          console.log(data.results[i].title);
+
+          htmlStr='<p class="card-text">';
+          htmlStr += data.results[i].title;
+          htmlStr += '</p>';
+
+          $('#news-text').append(htmlStr);
+
+    
+      }
 
     }
 
