@@ -9,29 +9,31 @@ function getCountryData(shortCode) {
     })
 
     .then(function(info) {
-        console.log(info);
+        
         let timezone = (info.timezones[0]);
         let flag = (info.flag);
-        let currency = (info.currencies[1,2]);
+        let currencyName = (info.currencies[0].name);
+        let currencySymbol = (info.currencies[0].symbol);
         let language = (info.languages[0].name);
-        let
 
-
+        console.log(info);
+        $("#info").empty();
         
-        // $("#info").append("<p><h6>" + "<img src= "">" + "<br>" + "</h6></p>");
-        // $("#info").val('');
-        // $("#flag").append(flag);
+        $("#info").append('<p><h6>' + timezone + '<br>' +
+        'Language: ' + language + '<br>' +
+        'Currency: ' + currencyName + ', (' + currencySymbol + ')' + '</h6></p>');
+        $("#info").val('');
     })
 };
 
 $(document).ready(function() {
     $("#submit").click(function() {
         let location = $("#searchInput").val();
-        let shortCode = $("#shortCode").val();
         let mapQueryURL = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + location + '.json?access_token=' + accessToken;
 
         // clear output section on subsequent searches
-        $("#outputData").empty();
+        $("#nameTitle").empty();
+        $("#shortCode").empty();
 
             $.ajax({
                 url: mapQueryURL,
