@@ -1,15 +1,40 @@
 let accessToken = 'pk.eyJ1IjoibW94eS0iLCJhIjoiY2xkdzIxem45MDJnbTNybnZ6dndpaHdycSJ9.myBLbSV4M9QmJmkYflKQ0Q';
 
+// country information data pull made using the country Code ID returned by mapbox API call.
+function getCountryData(shortCode) {
+    $.ajax({
+        url: 'https://restcountries.com/v2/alpha/' + shortCode,
+        method: "GET",
+        dataType: "json"
+    })
+
+    .then(function(info) {
+        console.log(info);
+        let timezone = (info.timezones[0]);
+        let flag = (info.flag);
+        let currency = (info.currencies[1,2]);
+        let language = (info.languages[0].name);
+        let
+
+
+        
+        // $("#info").append("<p><h6>" + "<img src= "">" + "<br>" + "</h6></p>");
+        // $("#info").val('');
+        // $("#flag").append(flag);
+    })
+};
+
 $(document).ready(function() {
     $("#submit").click(function() {
         let location = $("#searchInput").val();
-        let queryURL = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + location + '.json?access_token=' + accessToken;
+        let shortCode = $("#shortCode").val();
+        let mapQueryURL = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + location + '.json?access_token=' + accessToken;
 
         // clear output section on subsequent searches
         $("#outputData").empty();
 
             $.ajax({
-                url: queryURL,
+                url: mapQueryURL,
                 method: "GET"
             })
             // Return and consoleLog Longitude and Latitude as 2 seperate variables defined by searchInput.
@@ -27,29 +52,27 @@ $(document).ready(function() {
                 })
 
                        // Next data call-function should display full location name and Country ISO tag in size scaling 
-                    // i.e -> [City: London, - Region: Greater London, - Country: England, United Kingdom: EN,GB] 
+                    // i.e -> [City: London, - Region: Greater London, - Country: England, United Kingdom & GB] 
             $.ajax({
-                url: queryURL,
+                url: mapQueryURL,
                 method: "GET"
             })
             
             .then(function(searchName) {
                 let fullName = (searchName.features[0].place_name);
-                let ISOcode = (searchName.features[0].properties.short_code);
-                // MapBox data stores ISO in 2 possible locations -> if statement functions to find alternative data source
-                if(ISOcode === undefined) {
-                    ISOcodeAlt = (searchName.features[0].context[1].short_code);
-                    $("#outputData").append("<p><h5>" + fullName + ": " + ISOcodeAlt + "</h5></p>");
-                    $("#outputData").val('');
-                } else {
-                    $("#outputData").append("<p><h5>" + fullName + ": " + ISOcode + "</h5></p>");
-                    $("#outputData").val('');
-                }
+                let ISOcode = (searchName.features[0].context[searchName.features[0].context.length-1].short_code);
+                    $("#nameTitle").append("<p><h4>" + fullName + "</h4></p>");
+                    $("#nameTitle").val('');
+                    $("#shortCode").append("<h5>" + ISOcode + "</h5>");
+                    $("#shortCode").val('');
 
                 console.log(fullName);
-                console.log(ISOcode, ISOcodeAlt);
+                console.log(ISOcode);
 
-            })
+            console.log('https://restcountries.com/v2/alpha/' + ISOcode);
+            getCountryData(ISOcode);
+
+        })
     })
 });
 
