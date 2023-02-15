@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-=======
+
     <!--<link rel="stylesheet" href="styles/reset.css" />-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -20,13 +20,15 @@
           <h1 class="display-4">Travel Buddy</h1>
           <p class="lead">This is an app to get all the information you need for your travel destinations.</p>
         </div>
-=======
+
     <!-- Search Input + Map + Location fundamental info display -->
     </div>
     <input id="searchInput" type="Search" placeholder="Search Here"><button type="button" id="submit">submit</button>
     <section class="text-center" id="searchInput-info">
-        <div id="nameTitle"></div><div id="shortCode"></div>
+        <div id="nameTitle"></div>
+        <div id="shortCode"></div>
         <div id="info"></div>
+        <div id="flag"></div>
     </section>
     <div id='map' style='width: 1000px; height: 400px;'></div>
 
@@ -37,18 +39,21 @@
         <p id="exchange-info"></p>
     </section>
 
-    <!-- News Section -->
-    <section class="text-center" id="currency-section">
-        <h3>Local News</h3>
-    </section>
+  <!-- News Section -->
+   <div id="news-header">
+    <h2>Breaking News!</h2>
+   </div>
+   <section id="news-text"></section>
+    
+   
 
->>>>>>> 336312c63bd192d23a959601db2090cc1b0c3230
     <!-- Moment.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/news.js"></script>
     <script src="assets/js/MapBox+restcountries.js"></script>
 </body>
 </html>
-<!-- >>>>>>> e150166a6c1b9ab9c0309a9cc975cf5b9446767d -->
+
