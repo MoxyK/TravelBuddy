@@ -23,6 +23,8 @@ function getCountryData(shortCode) {
         'Language: ' + language + '<br>' +
         'Currency: ' + currencyName + ', (' + currencySymbol + ')' + '</h6></p>');
         $("#info").val('');
+        // $("#flag").append('<img src="' + flag + '">');
+        // $("#flag").val('');
     })
 };
 
@@ -62,19 +64,27 @@ $(document).ready(function() {
             
             .then(function(searchName) {
                 let fullName = (searchName.features[0].place_name);
-                let ISOcode = (searchName.features[0].context[searchName.features[0].context.length-1].short_code);
+                // Country search data stores shortcode in alternate location - following code catches the return error 
+                let ISOcode;
+                try {
+                    ISOcode = (searchName.features[0].context[searchName.features[0].context.length-1].short_code);
+                } catch (error) {
+                    ISOcode = (searchName.features[0].properties.short_code);
+                }
+                
+                console.log(ISOcode);
+        
                     $("#nameTitle").append("<p><h4>" + fullName + "</h4></p>");
                     $("#nameTitle").val('');
                     $("#shortCode").append("<h5>" + ISOcode + "</h5>");
                     $("#shortCode").val('');
+                    
+                    console.log('https://restcountries.com/v2/alpha/' + ISOcode);
+                    getCountryData(ISOcode);
+                    console.log(fullName);
+                
 
-                console.log(fullName);
-                console.log(ISOcode);
-
-            console.log('https://restcountries.com/v2/alpha/' + ISOcode);
-            getCountryData(ISOcode);
-
-        })
+            })
     })
 });
 
