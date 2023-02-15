@@ -25,6 +25,9 @@ function getCountryData(shortCode) {
         $("#info").val('');
         // $("#flag").append('<img src="' + flag + '">');
         // $("#flag").val('');
+
+        // get Exchange rate
+        updateExchangeRate("GBP", info.currencies[0].code);
     })
 };
 
