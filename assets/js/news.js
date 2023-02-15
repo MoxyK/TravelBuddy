@@ -19,7 +19,8 @@
      
       if(data.status=="success")
       {    
-        $("#news-header").show();    
+        $("#news-header").show();   
+       
 
         for(i=0; i<5; i++){
           console.log(data.results[i].title);
@@ -29,7 +30,7 @@
           htmlStr+= '<h5 class="card-title"></h5>';
           htmlStr +='<p class="card-text"><a href="';
           htmlStr += data.results[i].link;
-          htmlStr+=' target=_blank">';
+          htmlStr+='"target="_blank">';
           htmlStr += data.results[i].title;
           htmlStr += '</a></p>';
           htmlStr+=' </div></div>';
