@@ -82,7 +82,11 @@ $(document).ready(function() {
                     console.log('https://restcountries.com/v2/alpha/' + ISOcode);
                     getCountryData(ISOcode);
                     console.log(fullName);
-                
+
+                    //store the current search country code in local storage to display the news by country
+                    localStorage.setItem("countrycode", ISOcode);
+                    getnews();
+
 
             })
     })
