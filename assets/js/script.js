@@ -42,4 +42,4 @@ let updateExchangeRate = (baseCurrency="GBP", localCurrency="EUR") => {
   });
 }
 
-updateExchangeRate(baseCurrency, wantedCurrency);
+//updateExchangeRate(baseCurrency, wantedCurrency);
