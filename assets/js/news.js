@@ -19,7 +19,8 @@
      
       if(data.status=="success")
       {    
-        $("#news-header").show();    
+        $("#news-header").show();   
+       
 
         for(i=0; i<5; i++){
           console.log(data.results[i].title);
@@ -29,7 +30,11 @@
           htmlStr+= '<h5 class="card-title"></h5>';
           htmlStr +='<p class="card-text"><a href="';
           htmlStr += data.results[i].link;
+<<<<<<< HEAD
           htmlStr+=' target=_blank">';
+=======
+          htmlStr+='"target="_blank">';
+>>>>>>> a85863d913526023bf8259241c96b146c6290ce8
           htmlStr += data.results[i].title;
           htmlStr += '</a></p>';
           htmlStr+=' </div></div>';
@@ -47,4 +52,14 @@
   );
   }
 
+<<<<<<< HEAD
 //});
+=======
+    
+  //event.preventDefault();
+    
+  });
+
+
+});
+>>>>>>> a85863d913526023bf8259241c96b146c6290ce8
