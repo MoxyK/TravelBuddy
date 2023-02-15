@@ -5,6 +5,32 @@ let wantedCurrency = "EUR";
 // retrieve Exchange rate data from local storage 
 let currencyResponse = JSON.parse(localStorage.getItem("currencyRespose"));
 
+const successCallback = (position) => {
+  console.log(position);
+};
+
+/*
+let getLocation = () => {
+// get local position 
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      const APIKey = "87a05fbcbcfbff2bf1ee9c3f";
+      const queryURL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}&limit=${1}&appid=${APIKey}`;
+      console.log(queryURL);
+      
+      $.ajax({
+        url: queryURL, 
+        method: "GET";
+      }).then((response) => {
+          console.log(response);
+          //alert(response.countryName);
+      });
+    });
+  } else {
+    //alert("Geolocation is not supported by this browser."); 
+    }); 
+  }
+} */
 
 let renderCurrency = (currencyResponse=null) => {
   if (currencyResponse === null) {
@@ -33,6 +59,7 @@ let updateExchangeRate = () => {
   });
 }
 
+//getLocation();
 
 if (currencyResponse === null || currencyResponse.length === 0 
   || currencyResponse.time_next_update_unix < moment().unix() 
@@ -53,3 +80,9 @@ if (currencyResponse === null || currencyResponse.length === 0
   }
     alert('SAVED!!');
   } */
+
+
+  country = {
+    shortCode: "GB",
+    currency: "GBP",
+  }
