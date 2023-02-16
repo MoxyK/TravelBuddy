@@ -25,6 +25,9 @@ function getCountryData(shortCode) {
         $("#info").val('');
         // $("#flag").append('<img src="' + flag + '">');
         // $("#flag").val('');
+
+        // get Exchange rate
+        updateExchangeRate("GBP", info.currencies[0].code);
     })
 };
 
@@ -52,7 +55,8 @@ $(document).ready(function() {
                             map.flyTo({
                             center: [(long), (lati)],
                             essential: true // this animation is considered essential with respect to prefers-reduced-motion
-                            })  
+                            })
+                displayWeather(lati, long);  
                 })
 
                        // Next data call-function should display full location name and Country ISO tag in size scaling 
@@ -82,7 +86,11 @@ $(document).ready(function() {
                     console.log('https://restcountries.com/v2/alpha/' + ISOcode);
                     getCountryData(ISOcode);
                     console.log(fullName);
-                
+
+                    //store the current search country code in local storage to display the news by country
+                    localStorage.setItem("countrycode", ISOcode);
+                    getnews();
+
 
             })
     })
