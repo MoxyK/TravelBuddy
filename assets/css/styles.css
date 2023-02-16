@@ -27,7 +27,38 @@ nav {
     margin-bottom: 12px;
 }
 
-#map {
+.grid-container {
+
+    display: grid;
+    grid-template-columns: auto ;
+    grid-gap: 10px;
+    padding: 10px;
+  
+  }
+  
+  .card:hover {
+     background-color: #E8FFEB;
+     box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+#news-header{
+    text-align: center;
+    color: crimson;
+}
+
+body {
+    background-color: #f5f4c1;
+
+  }
+
+.jumbotron {
+    background-image: url("../images/worldtravel.jpg");
+    background-repeat: repeat-x;
+    max-width: 100%;
+    height: auto;
+  }
+
+  #map {
     height: 100%;
     min-height: 400px;
     width: 100%;
