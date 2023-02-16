@@ -1,3 +1,32 @@
+h1 {
+    font-weight: 500!important;
+}
+
+nav {
+    margin: 0 auto 4px auto!important;
+    padding:  0!important;
+}
+
+.jumbotron {
+    margin-bottom: 1px;
+}
+
+.nav-link {
+    color: #343a40;
+}
+
+.nav {
+    background-color: blanchedalmond;
+    border-bottom: #343a40 solid 1px;
+}
+
+#speech {
+    height: auto;
+    padding: 6px;
+    margin-left: 12px;
+    margin-bottom: 12px;
+}
+
 .grid-container {
 
     display: grid;
@@ -19,6 +48,7 @@
 
 body {
     background-color: #f5f4c1;
+
   }
 
 .jumbotron {
@@ -26,5 +56,4 @@ body {
     background-repeat: repeat-x;
     max-width: 100%;
     height: auto;
-    margin-bottom: 0;
   }

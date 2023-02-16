@@ -21,30 +21,74 @@
           <p class="lead">This is an app to get all the information you need for your travel destinations.</p>
         </div>
     </div>
+   
+    <!-- Nav bar with Search Input -->
+    <nav class="nav justify-content-center container-fluid">
+        <a class="nav-link active" aria-current="page" href="#searchInput-info">Info</a>
+        <a class="nav-link" href="#map">Map</a>
+        <a class="nav-link" href="#currency-section">Exchange Rate</a>
+        <a class="nav-link" href="#news-header">News</a>
+        <a class="nav-link" href="#weather-div">Weather</a>
+      </nav>
 
     <!-- Search Input + Map + Location fundamental info display -->
+<div class="container">
+    <div class="row justify-content-md-center">
+            <input id="searchInput" type="Search" placeholder="Search Here"><button type="button" id="submit">submit</button>
     </div>
-    <input id="searchInput" type="Search" placeholder="Search Here"><button type="button" id="submit">submit</button>
-    <section class="text-center" id="searchInput-info">
-        <div id="nameTitle"></div>
-        <div id="shortCode"></div>
-        <div id="info"></div>
-        <div id="flag"></div>
+</div>
+    <section class="text-center" class="container" id="searchInput-info">
+            <div id="nameTitle"></div>
+            <div id="shortCode"></div>
+            <div id="info"></div>
+            <div id="flag"></div>
+        </div>
     </section>
-    <div id='map' style='width: 1000px; height: 400px;'></div>
+    <div id='map' style='width: 1400px; height: 400px;'></div>
+
 
     <!-- Currency Exchange rate setion -->
-    <section class="text-center" id="currency-section">
-        <h3>Local Exchange Rate</h3>
-        <p id="exchange-rate"></p>
+    <section class="text-center border border-dark m-3 d-none" id="currency-section">
+        <h3 class="my-3">Local Exchange Rate</h3>
+        <div class="row justify-content-center">
+            <p id="exchange-rate"></p>
+            <button id="speech"><img src="assets/images/chat.png" height="25px"></button>
+        </div>
+        <form id="form" action="">
+            <input id="val-cur1" name="val-cur1" type="number" width="40">
+            <select id="type-cur1" name="type-cur1"></select>
+            <input id="val-cur2" name="val-cur2" type="number"  size="2" disabled>
+            <select id="type-cur2" name="type-cur2"></select>
+            <button id="exchange">Submit</button>
+        </form>
         <p id="exchange-info"></p>
     </section>
 
-  <!-- News Section -->
-   <div id="news-header">
+ <!-- News Section -->
+ <div id="news-header">
     <h2>Breaking News!</h2>
    </div>
    <section id="news-text" class="grid-container"></section>
+
+    <!-- Weather Section -->
+   <div id="weather-div" class="col-lg-12 pb-3 m-3 d-none">
+    <h3 class="my-3 text-center">Weather</h3>
+    <section id="forecast" class="row mt-3" role="region" aria-live="polite">
+        <div class="card-body text-white bg-dark m-2">
+            <h5 class="card-title" id="date"></h5>
+            <p class="card-text" id="weather-img"></p>
+            <p class="card-text" id="weather"></p>
+            <p class="card-text" id="temp"></p>
+            <p class="card-text" id="humidity"></p>
+            <p class="card-text" id="wind"></p>
+        </div>  
+        <div class="card-body text-white bg-dark m-2" id="0"></div>
+        <div class="card-body text-white bg-dark m-2" id="1"></div>
+        <div class="card-body text-white bg-dark m-2" id="2"></div>
+        <div class="card-body text-white bg-dark m-2" id="3"></div>
+        <div class="card-body text-white bg-dark m-2" id="4"></div>
+    </section>
+  </div>
     
    
 
@@ -52,6 +96,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/js/currencies.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/news.js"></script>
     <script src="assets/js/MapBox+restcountries.js"></script>

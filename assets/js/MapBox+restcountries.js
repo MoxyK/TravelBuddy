@@ -25,6 +25,9 @@ function getCountryData(shortCode) {
         $("#info").val('');
         // $("#flag").append('<img src="' + flag + '">');
         // $("#flag").val('');
+
+        // get Exchange rate
+        updateExchangeRate("GBP", info.currencies[0].code);
     })
 };
 
@@ -52,7 +55,8 @@ $(document).ready(function() {
                             map.flyTo({
                             center: [(long), (lati)],
                             essential: true // this animation is considered essential with respect to prefers-reduced-motion
-                            })  
+                            })
+                displayWeather(lati, long);  
                 })
 
                        // Next data call-function should display full location name and Country ISO tag in size scaling 
