@@ -1,5 +1,12 @@
 h1 {
     font-weight: 500!important;
+    color: rgb(78, 78, 78);
+}
+
+.lead {
+    color: whitesmoke;
+    background-color: #343a40;
+    opacity: 75%;
 }
 
 nav {
