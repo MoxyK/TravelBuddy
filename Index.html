@@ -42,6 +42,13 @@
     <section class="text-center" id="currency-section">
         <h3>Local Exchange Rate</h3>
         <p id="exchange-rate"></p>
+        <form id="form" action="">
+            <input id="val-cur1" name="val-cur1" type="number" width="40">
+            <select id="type-cur1" name="type-cur1"></select>
+            <input id="val-cur2" name="val-cur2" type="number"  size="2" disabled>
+            <select id="type-cur2" name="type-cur2"></select>
+            <button id="exchange">Submit</button>
+        </form>
         <p id="exchange-info"></p>
     </section>
 
@@ -57,9 +64,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/js/currencies.js"></script>
     <script src="assets/js/script.js"></script>
-    <script src="assets/js/news.js"></script>
-    <script src="assets/js/MapBox+restcountries.js"></script>
+    <!--<script src="assets/js/news.js"></script>
+    <script src="assets/js/MapBox+restcountries.js"></script>-->
 </body>
 </html>
 
