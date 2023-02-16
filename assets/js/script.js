@@ -9,6 +9,7 @@ let renderCurrency = (currencyObj=null, baseCurrency="GBP", currency="EUR", curV
   // display exchange rate section
   $("#currency-section").removeClass("d-none");
   // disiplay exchane rate
+  curMsg = `1 ${baseCurrency} is ${currencyObj.conversion_rates[currency]} ${currency}`;
   $("#exchange-rate").text(`1 ${baseCurrency} is ${currencyObj.conversion_rates[currency]} ${currency}`);
   $("#exchange-rate").css("fontSize", "1.5em");
   $("#exchange-rate").css("color", "blue");
@@ -21,7 +22,7 @@ let renderCurrency = (currencyObj=null, baseCurrency="GBP", currency="EUR", curV
   let baseCur = $("#val-cur1");
   let exCur = $("#val-cur2");
   baseCur.val(curValue);
-  exCur.val(curValue * currencyObj.conversion_rates[currency]);
+  exCur.val((curValue * currencyObj.conversion_rates[currency]).toFixed(2));
 
   let baseType = $("#type-cur1");
   let exType = $("#type-cur2");
@@ -40,6 +41,17 @@ let renderCurrency = (currencyObj=null, baseCurrency="GBP", currency="EUR", curV
   }
   baseType.val(baseCurrency);
   exType.val(currency);
+
+  $("#speech").on("click", (event, curMsg) => {
+    event.preventDefault();
+    console.log(this)
+    //this.removeClass("d-none")
+    let msg = new SpeechSynthesisUtterance();
+    msg.text = $("#exchange-rate").text();
+    window.speechSynthesis.speak(msg);
+  });
+ 
+
 }
 
 
@@ -83,4 +95,3 @@ $("#exchange").on("click", event => {
   updateExchangeRate(typeBase, typeEx, valBase);
 });
 
-  

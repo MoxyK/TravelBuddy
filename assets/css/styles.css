@@ -16,7 +16,13 @@ nav {
 }
 
 .nav {
-
     background-color: blanchedalmond;
     border-bottom: #343a40 solid 1px;
+}
+
+#speech {
+    height: auto;
+    padding: 6px;
+    margin-left: 12px;
+    margin-bottom: 12px;
 }
