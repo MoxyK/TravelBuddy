@@ -6,7 +6,9 @@ let renderCurrency = (currencyObj=null, baseCurrency="GBP", currency="EUR", curV
   if (currencyObj === null) {
     currencyObj = JSON.parse(localStorage.getItem("currencyObj"));
   }
-
+  // display exchange rate section
+  $("#currency-section").removeClass("d-none");
+  // disiplay exchane rate
   $("#exchange-rate").text(`1 ${baseCurrency} is ${currencyObj.conversion_rates[currency]} ${currency}`);
   $("#exchange-rate").css("fontSize", "1.5em");
   $("#exchange-rate").css("color", "blue");
@@ -15,7 +17,7 @@ let renderCurrency = (currencyObj=null, baseCurrency="GBP", currency="EUR", curV
     `Exchange rate retrieved at ${currencyObj.time_last_update_utc} (UTC) <br/>
     <a href="https://www.exchangerate-api.com">Rates By Exchange Rate API</a>`);
 
-  // setup dropdown menues
+  // number input for currencies convertion
   let baseCur = $("#val-cur1");
   let exCur = $("#val-cur2");
   baseCur.val(curValue);
@@ -23,7 +25,7 @@ let renderCurrency = (currencyObj=null, baseCurrency="GBP", currency="EUR", curV
 
   let baseType = $("#type-cur1");
   let exType = $("#type-cur2");
-console.log(exType.children().length, baseType.children().length)
+
   if (exType.children().length === 0 || baseType.children().length === 0) {
     supportedCurrencies.forEach((state) => {
       //create the dropdown items and add dropdown value
