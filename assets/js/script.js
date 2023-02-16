@@ -1,6 +1,6 @@
-// Currencies to exchange
-let baseCurrency = "GBP";
-let wantedCurrency = "NOK";
+// Currencies to exchange for testing
+//let baseCurrency = "GBP";
+//let wantedCurrency = "NOK";
 
 
 let renderCurrency = (currencyObj=null, baseCurrency="GBP", currency="EUR", curValue=1) => {
@@ -89,9 +89,8 @@ let updateExchangeRate = (baseCurrency="GBP", localCurrency="EUR", value=1) => {
 const APIKey = "4ddb322a76968b6cb599fa2b021f691b";
 
 
-let displayWeather = (city, lat, lon) => {
+let displayWeather = (lat, lon) => {
   // display current weather
-  $("#city").text(`${city}`);
   getCurrentWeather("weather", lat, lon, APIKey);
   getForcastWeather("forecast", lat, lon, APIKey);
 }
@@ -168,8 +167,8 @@ let getCurrentWeather = (queryType="weather", lat, lon, APIKey) => {
 // wait until the page has loaded
 $(window).on('load', () => {
   // testing function calls
-  displayWeather("London", 51.5073219, -0.1276474);    
-  updateExchangeRate(baseCurrency, wantedCurrency);
+  //displayWeather(51.5073219, -0.1276474);    
+  //updateExchangeRate(baseCurrency, wantedCurrency);
 
   // submit button to calculate exchanges money amount
   $("#exchange").on("click", event => {
