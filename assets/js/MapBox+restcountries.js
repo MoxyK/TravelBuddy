@@ -39,6 +39,7 @@ $(document).ready(function() {
         // clear output section on subsequent searches
         $("#nameTitle").empty();
         $("#shortCode").empty();
+        $("#flag").empty();
 
             $.ajax({
                 url: mapQueryURL,
