@@ -16,7 +16,7 @@
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-     
+      $('#news-text').html("");
       if(data.status=="success")
       {    
         $("#news-header").show();   
