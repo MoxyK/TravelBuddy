@@ -16,3 +16,15 @@
     text-align: center;
     color: crimson;
 }
+
+body {
+    background-color: #f5f4c1;
+  }
+
+.jumbotron {
+    background-image: url("../images/worldtravel.jpg");
+    background-repeat: repeat-x;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 0;
+  }
