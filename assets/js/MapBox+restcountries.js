@@ -19,12 +19,12 @@ function getCountryData(shortCode) {
         console.log(info);
         $("#info").empty();
         
-        $("#info").append('<p><h6>' + timezone + '<br>' +
-        'Language: ' + language + '<br>' +
+        $("#info").append('<p><h6>' + timezone + '<br>' + '<br>' +
+        'Language: ' + language + '<br>' + '<br>' +
         'Currency: ' + currencyName + ', (' + currencySymbol + ')' + '</h6></p>');
         $("#info").val('');
-        // $("#flag").append('<img src="' + flag + '">');
-        // $("#flag").val('');
+        $("#flag").append('<img src="' + flag + '"' + 'style="max-width: 100px; max-height: 120px;">');
+        $("#flag").val('');
 
         // get Exchange rate
         updateExchangeRate("GBP", info.currencies[0].code);
@@ -80,7 +80,7 @@ $(document).ready(function() {
         
                     $("#nameTitle").append("<p><h4>" + fullName + "</h4></p>");
                     $("#nameTitle").val('');
-                    $("#shortCode").append("<h5>" + ISOcode + "</h5>");
+                    $("#shortCode").append("<h5>" + "Country ISO: " + ISOcode + "</h5>");
                     $("#shortCode").val('');
                     
                     console.log('https://restcountries.com/v2/alpha/' + ISOcode);

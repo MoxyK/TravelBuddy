@@ -57,3 +57,14 @@ body {
     max-width: 100%;
     height: auto;
   }
+
+  #map {
+    height: 100%;
+    min-height: 400px;
+    width: 100%;
+    padding: 10px;
+    border: 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+}

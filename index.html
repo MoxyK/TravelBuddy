@@ -32,19 +32,29 @@
       </nav>
 
     <!-- Search Input + Map + Location fundamental info display -->
-<div class="container">
-    <div class="row justify-content-md-center">
+    <br>
+    <div class="row justify-content-center">
             <input id="searchInput" type="Search" placeholder="Search Here"><button type="button" id="submit">submit</button>
     </div>
-</div>
-    <section class="text-center" class="container" id="searchInput-info">
-            <div id="nameTitle"></div>
-            <div id="shortCode"></div>
-            <div id="info"></div>
-            <div id="flag"></div>
+    <br>
+    <section class="text-center" class="container-fluid" id="searchInput-info">
+        <div class="row">
+            <div class="col-lg-6">
+                <div id='map'></div>
+            </div>
+            <div class="col-lg-6">
+                <br>
+                <div id="nameTitle"></div>
+                <div id="shortCode"></div>
+                <br>
+                <div id="info"></div>
+                <br>
+                <br>
+                <div id="flag" class="justify-content-center"></div>
+            </div>
         </div>
     </section>
-    <div id='map' style='width: 1400px; height: 400px;'></div>
+    
 
 
     <!-- Currency Exchange rate setion -->
