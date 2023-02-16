@@ -25,12 +25,12 @@
         for(i=0; i<5; i++){
           console.log(data.results[i].title);
 
-          htmlStr= '<div class="card">';
+          htmlStr= '<div class="card border-success">';
           htmlStr+='<div class="card-body">';
           htmlStr+= '<h5 class="card-title"></h5>';
           htmlStr +='<p class="card-text"><a href="';
           htmlStr += data.results[i].link;
-          htmlStr+='"target="_blank">';
+          htmlStr+='"target="_blank" class="text-danger">';
           htmlStr += data.results[i].title;
           htmlStr += '</a></p>';
           htmlStr+=' </div></div>';
