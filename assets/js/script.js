@@ -90,6 +90,8 @@ const APIKey = "4ddb322a76968b6cb599fa2b021f691b";
 
 
 let displayWeather = (lat, lon) => {
+  // display exchange rate section
+  $("#weather-div").removeClass("d-none");
   // display current weather
   getCurrentWeather("weather", lat, lon, APIKey);
   getForcastWeather("forecast", lat, lon, APIKey);
