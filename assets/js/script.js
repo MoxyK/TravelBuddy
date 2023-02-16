@@ -2,6 +2,7 @@
 let baseCurrency = "GBP";
 let wantedCurrency = "NOK";
 
+
 let renderCurrency = (currencyObj=null, baseCurrency="GBP", currency="EUR", curValue=1) => {
   if (currencyObj === null) {
     currencyObj = JSON.parse(localStorage.getItem("currencyObj"));
@@ -83,15 +84,100 @@ let updateExchangeRate = (baseCurrency="GBP", localCurrency="EUR", value=1) => {
   });
 }
 
-updateExchangeRate(baseCurrency, wantedCurrency);
 
-// submit button to calculate exchanges money amount
-$("#exchange").on("click", event => {
-  event.preventDefault();
-  let form = new FormData(document.getElementById("form"));
-  let valBase = form.get("val-cur1");
-  let typeBase = form.get("type-cur1");
-  let typeEx = form.get("type-cur2");
-  updateExchangeRate(typeBase, typeEx, valBase);
+// Weather Setion
+const APIKey = "4ddb322a76968b6cb599fa2b021f691b";
+
+
+let displayWeather = (city, lat, lon) => {
+  // display current weather
+  $("#city").text(`${city}`);
+  getCurrentWeather("weather", lat, lon, APIKey);
+  getForcastWeather("forecast", lat, lon, APIKey);
+}
+
+
+// display the 5 day Weather Forcast
+let getForcastWeather = (queryType="forecast", lat, lon, APIKey) => {
+  let queryURL = `https://api.openweathermap.org/data/2.5/${queryType}?lat=${lat}&lon=${lon}&appid=${APIKey}`;
+
+  // created an AJAX call for 5 day weather forecast
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    // find next lunchtime to display data
+    let time = moment(response.list[0].dt*1000 + response.city.timezone*1000).format('H');
+    let startIndex = Math.abs(Math.floor((14-time)/3));
+    if (time > 14){
+      startIndex = Math.abs(Math.floor((24-time+14)/3));
+    }
+    
+    let index = startIndex;
+
+    //5 day weather forcast
+    for (let i=0; i<5; i++) {
+      
+      if (i!==0){index+=8;} // 8 time steps for 24 hours
+      let dateEl = $("<h5></h5>");
+      let weatherImg = $("<p></p>");
+      let weatherEl = $("<p></p>");
+      let tempEl = $("<p></p>");
+      let humidityEl = $("<p></p>");
+      let windEl = $("<p></p>");
+
+      // display date, weather conditions, temperature, humidity, wind speed
+      dateEl.text(`${moment(response.list[index].dt*1000 + response.city.timezone*1000).format('ddd, DD.MM.YY')}`);
+      weatherImg.html(`<img src="https://openweathermap.org/img/wn/${(response.list[index].weather[0].icon)}.png"/>`);
+      weatherEl.text(`${response.list[index].weather[0].description}`);
+      tempEl.text(`Temp: ${(response.list[index].main.temp - 273.15).toFixed(1)} °C`); 
+      humidityEl.text(`Humidity: ${response.list[index].main.humidity} %`);
+      windEl.text(`Wind: ${(response.list[index].wind.speed * 3.6).toFixed(1)} km/h`);
+      //append data to corresponding card
+      $("#"+i.toString()).html("");
+      $("#"+i.toString()).append(dateEl, weatherImg, weatherEl, tempEl, humidityEl, windEl);
+
+    }
+
 });
+}
 
+
+// display the currentWeather
+let getCurrentWeather = (queryType="weather", lat, lon, APIKey) => {
+  let queryURL = `https://api.openweathermap.org/data/2.5/${queryType}?lat=${lat}&lon=${lon}&appid=${APIKey}`;
+
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    
+    // display date, weather conditions, temperature, humidity, wind speed
+    //$("#date").text(`${moment(response.dt*1000 + response.timezone*1000).format('dddd, DD.MM.YYYY, HH:ss')}`);
+    $("#date").text(`Now`);
+    $("#weather-img").html(`<img src="https://openweathermap.org/img/wn/${(response.weather[0].icon)}.png"/>`);
+    $("#weather").text(`${response.weather[0].description}`);
+    $("#temp").text(`Temp: ${(response.main.temp - 273.15).toFixed(1)} °C`); 
+    $("#humidity").text(`Humidity: ${response.main.humidity} %`);
+    $("#wind").text(`Wind: ${(response.wind.speed * 3.6).toFixed(1)} km/h`);
+   
+  }); 
+}
+
+
+// wait until the page has loaded
+$(window).on('load', () => {
+  // testing function calls
+  displayWeather("London", 51.5073219, -0.1276474);    
+  updateExchangeRate(baseCurrency, wantedCurrency);
+
+  // submit button to calculate exchanges money amount
+  $("#exchange").on("click", event => {
+    event.preventDefault();
+    let form = new FormData(document.getElementById("form"));
+    let valBase = form.get("val-cur1");
+    let typeBase = form.get("type-cur1");
+    let typeEx = form.get("type-cur2");
+    updateExchangeRate(typeBase, typeEx, valBase);
+  });
+});
