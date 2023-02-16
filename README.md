@@ -1,12 +1,10 @@
 # Travel Buddy
 
-Kenau - working on inintegrating mapbox with search inputs
-Kalpana - displaying the local new using bootstrap cards
-Koni - displaying exchange rate for the travel destination 
+The Travel App for the versed Traveller
 
 ## Description
 
-This project will present the user with a input field to search for a Place and display the current wether and a 5-day weather forcast ToDo
+This App presents the user with an input to search for their next travel destination.  Helpful information like language, time zone or currency will be display and the destinaton will be highlighted on the map. Furthermore, the traveller will get the current exchange rate for the country's currency and they can calculate how much money they would get when they exchange a certain amount. As it is always good to be well informed about your travel destination, the current news will be displayed for the country.  And lastly, as one needs to know what to pack, the traveller will get the current weather and a 5-day weather forcast. Bon voyage!
 
 ### Repository
 
@@ -22,18 +20,19 @@ This app will run in the browser, and will feature dynamically updated HTML and 
 
 ## Usage
 
-The webpage will display the current weather and a 5-day weather forecast 
-ToDo
+The User will be able to search for a city, country or place of interest and will be presented with helpful information, seeing the search on the map, get currency exchange rate, news, weather and a 5-day weather forecast.  The user can calculate how much money he would get in the local currency and they can follow the news links. Currency exchange rate will be read by a speech sythesiser while pressing the button next to the exchange rate.
+
 
 This is how the deployed pages looks like:
 
-![alt screenshot of deployed page](assets/images/screenshot.png)
+![alt screenshot1 of deployed page](assets/images/screenshot1.png)
+![alt screenshot2 of deployed page](assets/images/screenshot2.png)
 
-<p style="text-align: center;">Screenshot of deployed Webpage</p>
+<p style="text-align: center;">Screenshots of deployed Webpage</p>
 
 ## Future Improvements
 
-ToDo
+Future Improvements will include displaying more useful information like country emergency numbers and dialing codes.  The exchange rate feature will include reverse calculation from the foreign currency back into home currency.  One of the major feature will be accesibility and make further parts of the page being read out aloud by the speech synthesiser.
 
 ## Credits
 
